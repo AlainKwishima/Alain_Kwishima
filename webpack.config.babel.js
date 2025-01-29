@@ -23,9 +23,9 @@ module.exports = (env, argv) => {
     devtool: IS_PRODUCTION ? false : 'inline-source-map',
 
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      clean: true,
-    },
+  path: path.resolve(__dirname, 'public'),
+  clean: true,
+},
 
     plugins: [
       new Dotenv(),
