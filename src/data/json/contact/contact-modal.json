@@ -1,0 +1,40 @@
+{  
+  "github": {
+    "cname": "badge-github",
+    "href": "https://github.com/chaseottofy",
+    "title": "Github",
+    "dataAcc": "@chaseottofy",
+    "dataBef": null,
+    "idx": 0
+  },  
+  "LinkedIn": {
+    "cname": "badge-LinkedIn",
+    "href": "https://www.linkedin.com/in/alain-kwishima-975514327/",
+    "title": "LinkedIn",
+    "dataAcc": "500+ conn",
+    "dataBef": [
+      "@Alain-Kwishima",
+      "_"
+    ],
+    "idx": 1
+  },
+  "codepen": {
+    "cname": "badge-codepen",
+    "href": "https://codepen.io/chaseottofy",
+    "title": "Codepen",
+    "dataAcc": "@chaseottofy",
+    "dataBef": null,
+    "idx": 2
+  },
+  "codewars": {
+    "cname": "badge-codewars",
+    "href": "https://www.codewars.com/users/protto",
+    "title": "Codewars",
+    "dataAcc": "Top 0.077%",
+    "dataBef": [
+      "@protto",
+      "#514"
+    ],
+    "idx": 3
+  }
+}

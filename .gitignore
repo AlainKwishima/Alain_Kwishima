@@ -1,0 +1,29 @@
+# Dependency packages files
+node_modules/
+
+# Output
+dist/
+
+# Environment variables
+.env
+
+# Unused
+drafts/
+
+# Personal
+_docs/
+unused/
+
+# IDE
+vscode
+.vscode/
+
+unused.html
+unused.js
+inter/
+handle-pdf.js
+todo.js
+
+src/imgprojstart2/
+
+src/assets/resume1.pdf

@@ -1,0 +1,535 @@
+/* 
+Fonts are loaded in the order they appear in this file.
+*/
+
+/*
+I'm using block font-display for basement because it's decorative and scales horrendously.
+*/
+@font-face {
+  font-display: block;
+  font-family: basement;
+  font-style: normal;
+  font-weight: 900;
+  src: url('../assets/fonts/subsetted/basement-expanded-Subset.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Neue;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/subsetted/NeueMontreal-Regular-Subset.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Neue;
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/subsetted/NeueMontreal-Medium-Subset.woff2') format('woff2');
+}
+
+:root {
+  --primaryFont: "Neue", sans-serif, -apple-system, ui-sans-serif, system-ui, blinkmacsystemfont, segoe ui, roboto, helvetica neue, arial, noto sans, sans-serif, monospace;
+  --secondaryFont: "basement", georgia, sans-serif, -apple-system, ui-sans-serif, system-ui, blinkmacsystemfont, segoe ui, roboto, helvetica neue, arial, noto sans, sans-serif, monospace;
+
+  /* ********************************** */
+
+  /* aspect ratio: large project images */
+  --wtvw: 1071px;
+  --htvh: 459px;
+  --wt: 1071;
+  --ht: 459;
+
+  /* --wtvw: 1280px;
+  --htvh: 720px;
+  --wt: 1280;
+  --ht: 720; */
+
+  /* --wt: 1600; */
+
+  /* --ht: 900; */
+  --ap: calc(var(--wt)/var(--ht));
+  --ap2: calc(100% * (var(--ht)/var(--wt)));
+
+  /* ********************************** */
+
+  /* aspect ratio: small project images */
+  --wt2: 720;
+  --ht2: 540;
+  --htvh2: 540px;
+  --wtvw2: 720px;
+  --apsmall: calc(var(--wt2)/var(--ht2));
+  --ap2small: calc(100% * (var(--ht2)/var(--wt2)));
+
+  /* ********************************** */
+
+  /* dynamic font sizes */
+  --fs0: max(34px, 2.8rem);
+  --fs1: max(32px, 2.8rem);
+  --fs2: max(25px, 2.2rem);
+  --fs3: max(20px, 1.8rem);
+  --fs4: max(22px, 1.6rem);
+  --fs5: max(1.125rem, 16px);
+  --fs6: max(1rem, 16px);
+
+  /* ********************************** */
+
+  /* Z indices */
+  --z-main: 500;
+  --z-footer: 600;
+  --z-sidebar: 700;
+  --z-header: 800;
+  --z-aside: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+
+  /* ********************************** */
+
+  /* html template heights */
+  --skill-section-height: 300px;
+  --skill-section-height-sm: 240px;
+
+  /* ********************************** */
+
+  /* Shared colors between light/dark */
+  --primary1: #0089ae;
+  --primary2: #025b74;
+  --primary3: #013948;
+  --red1: #cf007a;
+
+  /* apply this value as a filter and the element color will be converted to primary2 */
+  --convert-to-primary: invert(33%) sepia(61%) saturate(1000%) hue-rotate(171deg) brightness(90%) contrast(101%);
+
+  /* ********************************** */
+
+  /* constants */
+  --intro-offset: 40vh;
+  --header-height: 4rem;
+  --max-width-md: 1080px;
+  --max-width-lg: 1280px;
+
+  /* --max-width-md: 1140px;/ */
+
+  /* --max-width-lg: 1280px; */
+  --br-1: 5px;
+  --br-2: 8px;
+  --br-3: 10px;
+  --br-4: 12px;
+  --br-half: 50%;
+  --br-full: 9999px;
+
+  /* ********************************** */
+
+  /* Transition helpers */
+  --tbg1: background .15s cubic-bezier(.4, 0, .2, 1);
+  --tbg2: background-color .2s cubic-bezier(.4, 0, .2, 1);
+  --tbg3: background-color 100ms cubic-bezier(.4, 0, .2, 1);
+  --tt1: transform .2s ease-in-out;
+  --tc1: color .2s ease-in-out;
+  --ttop1: top .2s ease-in-out;
+  --topac1: opacity .2s ease-in-out;
+  --ttoast1: all .35s cubic-bezier(.25, .75, .6, .98);
+  --ttooltip1: all .25s cubic-bezier(.25, .75, .6, .98);
+  --bez-1: cubic-bezier(.4, 0, .2, 1);
+  --bez-2: cubic-bezier(.33, 1, .68, 1);
+  --bez-3: cubic-bezier(.25, .75, .6, .98);
+  --bez-4: cubic-bezier(.25, .75, .6, .98);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.15;
+  scroll-behavior: smooth;
+  tab-size: 4;
+  text-size-adjust: 100%;
+}
+
+body {
+  position: relative;
+
+  /* width hack for mobile */
+  width: 100%;
+
+  /* width: calc(100vw - calc(100vw - 100%)); */
+  background: var(--black0);
+  color: var(--white1);
+  font-family: var(--primaryFont);
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: inherit;
+  overflow: hidden scroll;
+
+  /* -webkit-overflow-scrolling: touch; */
+}
+
+/* GENERAL RESETS
+============================ */
+h1,
+h2,
+h3,
+h4,
+span,
+button,
+p,
+a,
+li,
+ul,
+div,
+input,
+textarea {
+  font-family: var(--primaryFont);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 900 !important;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  line-height: 1.15;
+  outline: none;
+  text-transform: none;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--black2);
+  border-radius: var(--br-1);
+  margin: 0;
+  background: none;
+  color: var(--white1);
+  font-size: .875rem;
+  line-height: 1.15;
+  outline: none;
+  text-transform: none;
+}
+
+textarea {
+  width: 100%;
+
+  /* resize: vertical; */
+  min-height: 4rem;
+  padding: 0.5rem;
+  border: 1px solid var(--black2);
+  border-radius: var(--br-1);
+  background: none;
+  color: var(--white1);
+  font-size: .875rem;
+  resize: none;
+  text-transform: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  max-block-size: 100%;
+  max-inline-size: 100%;
+}
+
+button > img,
+a > img,
+span > img {
+  pointer-events: none;
+  user-select: none;
+}
+
+:link img,
+:visited img,
+a img {
+  border: none
+}
+
+input::placeholder {
+  color: var(--white2);
+  font-size: .875rem;
+  opacity: 1
+}
+
+a:focus-visible,
+input:focus-visible,
+input[type="radio"]:focus-visible + label,
+label:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 1.5px dotted var(--white1);
+}
+
+svg {
+  fill: var(--white1);
+  pointer-events: none;
+  user-select: none;
+}
+
+::selection {
+  background-color: var(--selection);
+  color: var(--white1);
+}
+
+/* ::-WEBKIT
+============================ */
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto
+}
+
+/* ::-MOZ
+============================ */
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none
+}
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* [ATTRIBUTES]
+============================ */
+img[disabled] {
+  appearance: none;
+  opacity: .5;
+  pointer-events: none;
+  user-select: none;
+}
+
+input[disabled],
+button[disabled],
+a[disabled] {
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.img-icon {
+  width: 1rem;
+  height: 1rem;
+  filter: invert(1);
+}
+
+.theme__light .img-icon {
+  filter: invert(0);
+}
+
+/* GENERAL UTILITIES
+===================================== */
+.body-prevent-scroll {
+  overflow: hidden;
+}
+
+.scrollbar-measure {
+  position: absolute;
+  overflow: scroll;
+  visibility: hidden;
+}
+
+/* TRANSITION UTILITIES
+===================================== */
+[data-disable-transitions="true"] * {
+  animation: none !important;
+  transition: none !important;
+  transition-duration: none !important;
+  transition-property: none !important;
+  transition-timing-function: none !important;
+}
+
+.skeleton {
+  animation: skeleton-loading 8s ease-in-out infinite;
+  background-image: var(--skeleton1) !important;
+  background-size: 400% 100%;
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton::placeholder {
+  color: transparent !important;
+  opacity: 0;
+}
+
+/* popup utilities
+===================================== */
+[data-active-popup="false"] {
+  z-index: -1 !important;
+  top: 0;
+  left: 0;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 200ms ease-in-out;
+  user-select: none !important;
+  visibility: hidden !important;
+}
+
+[data-active-popup="true"] {
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 200ms ease-in-out;
+  user-select: auto;
+  visibility: visible;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(1.5rem);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(15%);
+  }
+}
+
+@keyframes slight-opacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .8;
+  }
+}
+
+@keyframes ease-modal-in {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0
+  }
+
+  100% {
+    background-position: -200% 0
+  }
+}
+
+@keyframes pulse-small {
+  0% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .15;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* adaptive font sizes
+===================================== */
+
+/* @media screen and (max-width: 1020px) {
+  html {
+    font-size: 16px;
+  }
+} */
+
+/* @media screen and (max-width: 720px) {
+  html {
+    font-size: 16px;
+  }
+} */
+
+@media screen and (max-width: 390px) {
+  html {
+    font-size: 14px;
+  }
+}
